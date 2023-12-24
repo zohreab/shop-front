@@ -1,26 +1,18 @@
-import React, { useEffect } from 'react';
-import Routes from './routes'; // Import the Routes component
-import { setAuthToken } from './helpers/setAuthToken';
-import { BrowserRouter as Router } from 'react-router-dom';
-function App() {
+import React from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Register from './component/Register';
+import Home from './component/Home';
 
-  useEffect(() => {
-    // Check for JWT token in localStorage when the app starts
-    const token = localStorage.getItem('token');
-    if (token) {
-      setAuthToken(token); // Set the token in Axios headers if it exists
-    }
-  }, []);
-
+const App = () => {
   return (
-    <div className="App">
-      {/* Wrap the Routes component with a Router */}
-      <Router>
-        <Routes />
-      </Router>
-    </div>
+    <BrowserRouter>
+      <Routes>
+      <Route index element={<Home />} />
+      <Route path="/register" element={<Register />} />
+     
+      </Routes>
+    </BrowserRouter>
   );
-}
-
+};
 
 export default App;

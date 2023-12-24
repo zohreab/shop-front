@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbar from './Navbar'
+import { useNavigate } from "react-router-dom";
 
-const Register = () => {
+  const Register = () => {
+  
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -33,10 +36,12 @@ const Register = () => {
       .then(response => {
         console.log(response.data);
         // Perform actions upon successful registration
-        alert("successful")
+        alert("successful");
+        navigate("/");
       })
       .catch(err => {
         if (err.response && err.response.data && err.response.data.message) {
+          
           setError(err.response.data.message); // Set error message received from the API
         } else {
           setError('An error occurred. Please try again.'); // Generic error message
@@ -96,7 +101,7 @@ const Register = () => {
 
 
   const backgroundStyle = {
-    backgroundColor: '#E6DAD', 
+    backgroundColor: '#F4C2C2', 
     minHeight: '200vh',
     padding: '20px',
     position: 'relative', 
@@ -174,8 +179,10 @@ const Register = () => {
         </div>
         <div style={containerinputStyle}>
           <select onChange={(e) => setUserType(e.target.value)} style={inputStyle}>
-            <option value="SELLER">Seller</option>
+          <option value=""></option>
             <option value="CUSTOMER">Customer</option>
+            <option value="SELLER">Seller</option>
+
           
           </select>
         </div>
