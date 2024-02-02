@@ -37,7 +37,12 @@ import { useNavigate } from "react-router-dom";
         console.log(response.data);
         // Perform actions upon successful registration
         alert("successful");
-        navigate("/");
+        if (userType === 'CUSTOMER') {
+          navigate("/customerlogin");
+        } else if (userType === 'SELLER') {
+          navigate("/sellerlogin");
+        }
+       
       })
       .catch(err => {
         if (err.response && err.response.data && err.response.data.message) {
@@ -55,8 +60,8 @@ import { useNavigate } from "react-router-dom";
   const boxStyle = {
     width: '50%',
     height: `400px`,
-    position: 'relative', // Set the position to fixed
-    marginTop: `20%`, // Set the initial position
+    position: 'relative', 
+    marginTop: `20%`, 
     marginLeft: '25%',
     backgroundColor: '#B76E79',
     padding: '20px',
