@@ -24,7 +24,7 @@ function Products() {
   const getFilteredProducts = async () => {
     try {
       setAuthHeaders(axios);
-      const response = await axios.get('http://localhost:8080/product/filter/', {
+      const response = await axios.get('http://localhost:8080/shop/product/filter/', {
         params: { name_filter: searchTerm },
       });
       setProducts(response.data);
@@ -61,10 +61,11 @@ function Products() {
       <ul>
         {products.map((product) => (
           <li key={product.id}>
-            <img src={product.image} alt={product.name} />
+            <img src={product.image} alt={product.name} width={200} height={200}/>
             <p>{product.name}</p>
           </li>
         ))}
+        
       </ul>
     </div>
   );

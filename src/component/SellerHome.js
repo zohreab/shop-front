@@ -28,12 +28,6 @@ const SellerHome = () => {
         <button onClick={navigateToCreateProduct}>Create Product View</button>
       </div>
       <div>
-        <button onClick={navigateToCreateSellingProduct}>Create Selling Product View</button>
-      </div>
-      <div>
-        <button onClick={navigateToEditSellingProduct}>Edit Selling Product View</button>
-      </div>
-      <div>
         <button onClick={navigateToProducts}>products</button>
       </div>
     </div>

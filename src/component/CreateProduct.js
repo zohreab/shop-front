@@ -56,6 +56,7 @@ const CreateProduct = () => {
       <div>
         <button onClick={handleCreateProduct}>Create Product</button>
       </div>
+      
     </div>
   );
 };
