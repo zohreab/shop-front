@@ -14,16 +14,14 @@ const Navbar = () => {
   );
 };
 
-
 const navbarStyle = {
-  backgroundColor: '#B76E79',
-  
-  padding: '10px',
-  left: '0',
-  position: 'fixed', 
-  width: '100%', 
-  zIndex: '100', 
-  border: '2px solid #fff',
+  backgroundColor: '#b7b7b7',
+  margin: '0 auto',
+  padding: '1px',
+  borderRadius: '15px',
+  width: '44%',
+  marginLeft: '24%',
+  boxShadow: '3px 3px 150px #cbced1, -150px -150px 150px white',
 };
 
 const ulStyle = {
