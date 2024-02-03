@@ -61,7 +61,7 @@ import { useNavigate } from "react-router-dom";
     height: `375px`,
     position: 'relative',
     marginTop: `4%`,
-    marginLeft: '25%',
+    marginLeft: '27%',
     backgroundColor: '#707070',
     padding: '10px',
   };

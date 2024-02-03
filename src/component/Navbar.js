@@ -20,7 +20,7 @@ const navbarStyle = {
   padding: '1px',
   borderRadius: '15px',
   width: '44%',
-  marginLeft: '24%',
+  marginLeft: '26%',
   boxShadow: '3px 3px 150px #cbced1, -150px -150px 150px white',
 };
 
