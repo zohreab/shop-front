@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbar from './Navbar'
+import back_img from '../img/Background.png'
 import { useNavigate } from "react-router-dom";
 
   const Register = () => {
@@ -54,43 +55,56 @@ import { useNavigate } from "react-router-dom";
       });
   };
 
- 
- 
 
   const boxStyle = {
-    width: '50%',
-    height: `400px`,
-    position: 'relative', 
-    marginTop: `20%`, 
-    marginLeft: '25%',
-    backgroundColor: '#B76E79',
-    padding: '20px',
-    border: '2px solid #fff',
-    borderRadius: '50px',
-    zIndex: '1',
+    width: '40%',
+    height: `375px`,
+    position: 'relative',
+    marginTop: `4%`,
+    marginLeft: '27%',
+    backgroundColor: '#707070',
+    padding: '10px',
   };
 
+    const buttonStyle = {
+      width: '15%',
+      height: `20px`,
+      borderRadius: '30px',
+      position: 'relative',
+      marginTop: `5%`,
+      marginLeft: '25%',
+      marginRight: '25%',
+      backgroundColor: '#138324',
+      padding: '10px',
+    };
 
 
-  const inputStyle ={
-    height: '90%',
-    width: '50%',
-    borderRadius: '5px',
-    border: '2px solid #fff',
-    marginLeft: '25%',
-    fontFamily: 'Lalezar',
-    direction: 'RTl',
-  };
-
-  
+    const containerinputStyleHorizontal = {
+      position: 'relative',
+      width: '160px',
+      height: '10px',
+      marginTop: '12px',
+      marginRight: '5px',
+      borderRadius: '30px',
+      padding: '20px',
+      background: '#707070',
+      boxShadow: '14px 14px 80px #cbced1, -14px -14px 90px white',
+      alignItems: 'center',
+      justifyContent: 'center'
+    };
 
   const containerinputStyle = {
-    width: '70%',
-    padding: '10px',
-    marginBottom: '10px',
-    borderRadius: '5px',
-    border: '2px solid #fff',
-    maxHeight: '100px',
+    position: 'relative',
+    width: '170px',
+    height: '20px',
+    marginTop: '8px',
+    marginRight: '8px',
+    borderRadius: '30px',
+    padding: '15px',
+    background: '#707070',
+    boxShadow: '14px 14px 80px #cbced1, -14px -14px 90px white',
+    alignItems: 'center',
+    justifyContent: 'center'
   };
 
   const formStyle = {
@@ -99,18 +113,15 @@ import { useNavigate } from "react-router-dom";
     alignItems: 'center',
     height: '100%',
     overflowY: 'auto',
-    
   };
 
-
-
-
-  const backgroundStyle = {
-    backgroundColor: '#F4C2C2', 
-    minHeight: '200vh',
-    padding: '20px',
-    position: 'relative', 
-  };
+    const backgroundStyle = {
+      backgroundImage:`url(${back_img})`,
+      backgroundSize: 'cover',
+      minHeight: '100vh',
+      padding: '20px',
+      position: 'relative',
+    };
 
   return (
     <div style={backgroundStyle}>
@@ -123,34 +134,37 @@ import { useNavigate } from "react-router-dom";
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             placeholder="Enter username"
-            style={inputStyle}
+            style={{containerinputStyle}}
           />
         </div>
-        <div style={containerinputStyle}>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div style={containerinputStyleHorizontal}>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="ورود رمز عبور"
-            style={inputStyle }
+            placeholder="Enter password"
+            style={{containerinputStyleHorizontal}}
           />
         </div>
-        <div style={containerinputStyle}>
+        <div style={containerinputStyleHorizontal}>
           <input
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             placeholder="Confirm password"
-            style={inputStyle}
+            style={{containerinputStyleHorizontal, placeholder: {color: '#fff'}}}
           />
         </div>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <div style={containerinputStyle}>
           <input
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter email"
-            style={inputStyle}
+            style={{containerinputStyle, placeholder: {color: '#fff'}}}
           />
         </div>
         <div style={containerinputStyle}>
@@ -159,18 +173,18 @@ import { useNavigate } from "react-router-dom";
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
             placeholder="Enter phone number"
-            style={inputStyle}
-
-            
+            style={{containerinputStyle, placeholder: {color: '#fff'}}}
           />
         </div>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <div style={containerinputStyle}>
           <input
             type="text"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
             placeholder="Enter first name"
-            style={inputStyle}
+            style={{containerinputStyle, placeholder: {color: '#fff'}}}
           />
         </div>
         <div style={containerinputStyle}>
@@ -179,20 +193,23 @@ import { useNavigate } from "react-router-dom";
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
             placeholder="Enter last name"
-            style={inputStyle}
+            style={{containerinputStyle, placeholder: {color: '#fff'}}}
           />
         </div>
+        </div>
+
         <div style={containerinputStyle}>
-          <select onChange={(e) => setUserType(e.target.value)} style={inputStyle}>
+          <select onChange={(e) => setUserType(e.target.value)} style={{containerinputStyle}}
+          >
           <option value=""></option>
             <option value="CUSTOMER">Customer</option>
             <option value="SELLER">Seller</option>
-
-          
           </select>
         </div>
-        <div style={containerinputStyle}>
-          <button type="submit" style={inputStyle}>ثبت نام</button>
+
+        <div style={buttonStyle}>
+          <button type="submit" style={{containerinputStyle}}
+          >submit</button>
         </div>
 </form>
 
