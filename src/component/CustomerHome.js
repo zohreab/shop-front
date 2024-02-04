@@ -12,7 +12,7 @@ function CustomerHome() {
     
       const [sellingProducts, setSellingProducts] = useState([]);
       const [searchTerm, setSearchTerm] = useState('');
-      const [selectedProductId, setSelectedProductId] = useState(null);
+      
       const navigate = useNavigate();
 
       
@@ -27,7 +27,7 @@ function CustomerHome() {
           const response = await axios.get('http://localhost:8080/shop/selling-product/filter/');
           setSellingProducts(response.data);
         } catch (error) {
-          console.error('Error fetching products:', error);
+          alert('Error fetching products:', error);
         }
       };
     
@@ -62,7 +62,7 @@ function CustomerHome() {
           })
           setSellingProducts(response.data);
         } catch (error) {
-          console.error('Error fetching filtered products:', error);
+          alert('Error fetching filtered products:', error);
         }
       };
     
@@ -155,8 +155,8 @@ function CustomerHome() {
 
                     <AddToCart
                   sellingProductId={product.id}
-                  onSuccess={(updatedCart) => console.log('Product added to cart!', updatedCart)}
-                  onError={(error) => console.error('Error adding to cart:', error)}
+                  onSuccess={(updatedCart) => alert('Product added to cart!', updatedCart)}
+                  onError={(error) => alert('Error adding to cart:', error)}
                 />
                   </li>
                 ))}

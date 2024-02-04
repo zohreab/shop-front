@@ -3,16 +3,16 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { setAuthHeaders } from '../service/auth';
 
-function AddToCart({ sellingProductId, onSuccess, onError }) {
+function EditCartProduct({ sellingProductId, onSuccess }) {
   const [count, setCount] = useState(1);
 
-  const handleAddToCart = async () => {
+  const handleEditCartProduct = async () => {
     try {
       
       
       setAuthHeaders(axios);
       const response = await axios.put(
-        'http://localhost:8080/cart/add/',
+        'http://localhost:8080/cart/edit/',
         {
           selling_product_id: sellingProductId,
           count: count,
@@ -21,14 +21,14 @@ function AddToCart({ sellingProductId, onSuccess, onError }) {
 
       onSuccess(response.data); // Handle success, maybe update the cart state in the parent component
     } catch (error) {
-      alert('Error adding to cart:', error);
-      onError(error); // Handle error, maybe show an error message to the user
+      alert('Error editing cart:', error);
+     // Handle error, maybe show an error message to the user
     }
   };
 
   return (
     <div>
-      <label htmlFor="quantity">Quantity:</label>
+      <label htmlFor="quantity">Edit Quantity:</label>
       <input
         type="number"
         id="quantity"
@@ -37,9 +37,9 @@ function AddToCart({ sellingProductId, onSuccess, onError }) {
         value={count}
         onChange={(e) => setCount(e.target.value)}
       />
-      <button onClick={handleAddToCart}>Add to Cart</button>
+      <button onClick={handleEditCartProduct}>Edit quantity</button>
     </div>
   );
 }
 
-export default AddToCart;
+export default EditCartProduct;

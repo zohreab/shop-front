@@ -22,7 +22,7 @@ function SellingProducts() {
       const response = await axios.get('http://localhost:8080/shop/selling-product/filter/');
       setSellingProducts(response.data);
     } catch (error) {
-      console.error('Error fetching products:', error);
+      alert('Error fetching products:', error);
     }
   };
 
@@ -46,7 +46,7 @@ function SellingProducts() {
       })
       setSellingProducts(response.data);
     } catch (error) {
-      console.error('Error fetching filtered products:', error);
+      alert('Error fetching filtered products:', error);
     }
   };
 

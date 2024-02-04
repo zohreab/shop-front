@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { setAuthHeaders } from '../service/auth';
+import DeleteFromCart from "./DeleteFromCart"
+import EditCartProduct from "./EditCartProduct"
 import back_img from "../img/AllProductsBack.png";
 import Navbar from "./Navbar";
 
@@ -23,7 +25,7 @@ function Cart() {
       );
       setCartProducts(cartProductsWithDetails);
     } catch (error) {
-      console.error('Error fetching products:', error);
+      alert('Error fetching products:', error);
     }
   };
 
@@ -109,9 +111,20 @@ function Cart() {
                      <img src={"http://localhost:8080"+cartProduct.details.image} alt={cartProduct.details.name} width={200} height={200} />
                     
                   <p>Name: {cartProduct.details.name}</p>
-                 <p>Color: {getColorLabel(cartProduct.details.color)}</p>
-                  
+                  <p>Color: {getColorLabel(cartProduct.details.color)}</p>
                   <p>Count: {cartProduct.count}</p>
+                  
+                  <DeleteFromCart
+                  sellingProductId={cartProduct.id}
+                  onSuccess={(updatedCart) => alert('Product deleted from cart!', updatedCart)}
+                  
+                />
+                
+                <EditCartProduct
+                  sellingProductId={cartProduct.id}
+                  onSuccess={(updatedCart) => alert('Product quantity edited!', updatedCart)}
+                 
+                />
                 </div>
               )}
             </div>
