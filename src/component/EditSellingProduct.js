@@ -22,8 +22,8 @@ function EditSellingProduct({ productId, onClose }) {
         stock_count: stockCount.trim() || undefined, // Set to undefined if empty
       };
       
- 
-      const response = await axios.put(`http://localhost:8080/shop/selling-product/${encodeURIComponent(productId)}/update/`, payload);
+ const response = await axios.put(`http://localhost:8080/shop/selling-product/${encodeURIComponent(productId)}/update/`, payload);
+      
       console.log('Selling product updated:', response.data);
       onClose(); // Close the form after successful submission
     } catch (error) {
@@ -49,7 +49,7 @@ function EditSellingProduct({ productId, onClose }) {
   <select value={color} onChange={(e) => setColor(e.target.value)}>
     <option value="">Select Color</option>
     <option value="Red">Red</option>
-    <option value="Greed">Green</option>
+    <option value="Green">Green</option>
     <option value="Blue">Blue</option>
     <option value="Yellow">Yellow</option>
     <option value="Black">Black</option>

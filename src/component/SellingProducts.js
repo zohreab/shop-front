@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { setAuthHeaders } from '../service/auth';
 import EditSellingProduct from './EditSellingProduct';
+import SellingProductPriceHistory from './SellingProductPriceHistory'
 import back_img from "../img/AllProductsBack.png";
 import Navbar from "./Navbar";
 
@@ -26,6 +27,10 @@ function SellingProducts() {
   };
 
   const handleEditSellingProduct = (productId) => {
+    setSelectedProductId(productId);
+  };
+
+  const handlePriceHistory = (productId) => {
     setSelectedProductId(productId);
   };
 
@@ -58,6 +63,23 @@ function SellingProducts() {
       // If search term is empty, fetch all products
       getAllSellingProducts();
     }
+  };
+
+  const getColorLabel = (colorKey) => {
+    
+    const colorMapping = {
+      'RED': 'Red',
+      'GRN': 'Green',
+      'BLU': 'Blue',
+      'YLW': 'Yellow',
+      'BLK': 'Black',
+      'WHT': 'White',
+      'GRY': 'Gray',
+      'ORG': 'Orange',
+     
+    };
+  
+    return colorMapping[colorKey] || colorKey;
   };
 
   const boxStyle = {
@@ -119,16 +141,14 @@ function SellingProducts() {
       <div style={boxStyle}>
         <div>
           <h2 style={textStyle}>All Selling Products</h2>
-          {/* Search Bar */}
-          {/* ... (existing search form code) */}
-
+          
           {/* Product List */}
           <ul>
             {sellingProducts.map((product) => (
               <li key={product.id}>
                 <img src={product.image} alt={product.name} width={200} height={200} />
                 <p>Name: {product.name}</p>
-                <p>Color: {product.color}</p>
+                <p>Color: {getColorLabel(product.color)}</p>
                 <p>Size: {product.size}</p>
                 <p>Properties: {JSON.stringify(product.properties)}</p>
                 <p>Price: ${product.price}</p>
@@ -144,6 +164,17 @@ function SellingProducts() {
                     onClose={handleCloseForm}
                   />
                 )}
+
+                <button onClick={() => handlePriceHistory(product.id)}>
+                  Show price history 
+                </button>
+                {selectedProductId === product.id && (
+                  <SellingProductPriceHistory
+                    productId={product.id}
+                    onClose={handleCloseForm}
+                  />
+                )}
+
               </li>
             ))}
           </ul>

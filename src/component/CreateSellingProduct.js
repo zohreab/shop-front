@@ -44,8 +44,18 @@ function CreateSellingProduct({ productId, onClose }) {
         </div>
       )}
       <label>
-        Color:
-        <input type="text" value={color} onChange={(e) => setColor(e.target.value)} />
+  Color:
+  <select value={color} onChange={(e) => setColor(e.target.value)}>
+    <option value="">Select Color</option>
+    <option value="Red">Red</option>
+    <option value="Green">Green</option>
+    <option value="Blue">Blue</option>
+    <option value="Yellow">Yellow</option>
+    <option value="Black">Black</option>
+    <option value="White">White</option>
+    <option value="Gray">Gray</option>
+    <option value="Orange">Orange</option>
+  </select>
       </label>
       <br />
       <label>

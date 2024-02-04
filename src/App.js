@@ -10,7 +10,9 @@ import CreateProduct  from './component/CreateProduct'
 import CreateSellingProduct  from './component/CreateSellingProduct' 
 import Products  from './component/products'
 import SellingProducts from  './component/SellingProducts'
-import EditSellingProduct  from './component/EditSellingProduct' 
+import Cart from  './component/Cart'
+
+
 
 
 const App = () => {
@@ -27,8 +29,8 @@ const App = () => {
       <Route path="/createsellingproduct" element={<CreateSellingProduct/>} />
       <Route path="/product" element={<Products/>} />
       <Route path="/sellingproduct" element={<SellingProducts/>} />
-      <Route path="/editsellingproduct" element={<EditSellingProduct/>} />
-      
+      <Route path="/cart" element={<Cart/>} />
+     
       </Routes>
     </BrowserRouter>
   );

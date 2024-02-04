@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // or '@reach/router' if you are using Reach Router
+import { useNavigate } from 'react-router-dom'; 
 
 const SellerHome = () => {
   const navigate = useNavigate();
