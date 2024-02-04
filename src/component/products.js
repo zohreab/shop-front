@@ -134,7 +134,7 @@ function Products() {
       <ul>
         {products.map((product) => (
           <li key={product.id}>
-            <img src={product.image} alt={product.name} width={200} height={200}/>
+            <img src={"http://localhost:8080"+ product.image} alt={product.name} width={200} height={200}/>
             <p>{product.name}</p>
             <button onClick={() => handleCreateSellingProduct(product.id)}>
               Create Selling Product

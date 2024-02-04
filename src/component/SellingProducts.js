@@ -146,7 +146,7 @@ function SellingProducts() {
           <ul>
             {sellingProducts.map((product) => (
               <li key={product.id}>
-                <img src={product.image} alt={product.name} width={200} height={200} />
+                <img src={"http://localhost:8080"+ product.image} alt={product.name} width={200} height={200} />
                 <p>Name: {product.name}</p>
                 <p>Color: {getColorLabel(product.color)}</p>
                 <p>Size: {product.size}</p>

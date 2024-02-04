@@ -102,11 +102,11 @@ function Cart() {
         <div>
           {cartProducts.map((cartProduct) => (
             <div key={cartProduct.id}>
-            
+           
              
               {cartProduct.details && (
                 <div>
-                     <img src={cartProduct.details.image} alt={cartProduct.details.name} width={200} height={200} />
+                     <img src={"http://localhost:8080"+cartProduct.details.image} alt={cartProduct.details.name} width={200} height={200} />
                     
                   <p>Name: {cartProduct.details.name}</p>
                  <p>Color: {getColorLabel(cartProduct.details.color)}</p>
