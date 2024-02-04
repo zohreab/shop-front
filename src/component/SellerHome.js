@@ -13,12 +13,9 @@ const SellerHome = () => {
     navigate('/product');
   };
 
-  const navigateToCreateSellingProduct = () => {
-    navigate('/createsellingproduct');
-  };
 
-  const navigateToEditSellingProduct = () => {
-    navigate('/editsellingproduct');
+  const navigateToSellingProduct = () => {
+    navigate('/sellingproduct');
   };
 
   return (
@@ -29,6 +26,9 @@ const SellerHome = () => {
       </div>
       <div>
         <button onClick={navigateToProducts}>products</button>
+      </div>
+      <div>
+        <button onClick={navigateToSellingProduct }>selling products</button>
       </div>
     </div>
   );
