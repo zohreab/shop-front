@@ -8,7 +8,8 @@ import CustomerHome from './component/CustomerHome';
 import SellerHome from './component/SellerHome'; 
 import CreateProduct  from './component/CreateProduct' 
 import CreateSellingProduct  from './component/CreateSellingProduct' 
-import Products  from './component/products' 
+import Products  from './component/products'
+import Product  from './component/Product' 
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
       <Route path="/createproduct" element={<CreateProduct/>} />
       <Route path="/createsellingproduct" element={<CreateSellingProduct/>} />
       <Route path="/product" element={<Products/>} />
+      <Route path="/product/:id" element={<Product/>} />
       </Routes>
     </BrowserRouter>
   );

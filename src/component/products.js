@@ -1,10 +1,13 @@
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { setAuthHeaders } from '../service/auth';
+import CreateSellingProduct from './CreateSellingProduct';
 
 function Products() {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedProductId, setSelectedProductId] = useState(null);
 
   useEffect(() => {
     // Fetch all products on component mount
@@ -21,12 +24,20 @@ function Products() {
     }
   };
 
+  const handleCreateSellingProduct = (productId) => {
+    setSelectedProductId(productId);
+  };
+
+  const handleCloseForm = () => {
+    setSelectedProductId(null);
+  };
+
   const getFilteredProducts = async () => {
     try {
       setAuthHeaders(axios);
       const response = await axios.get('http://localhost:8080/shop/product/filter/', {
         params: { name_filter: searchTerm },
-      });
+      })
       setProducts(response.data);
     } catch (error) {
       console.error('Error fetching filtered products:', error);
@@ -57,15 +68,22 @@ function Products() {
         <button type="submit">Search</button>
       </form>
 
+   
       {/* Product List */}
       <ul>
         {products.map((product) => (
           <li key={product.id}>
             <img src={product.image} alt={product.name} width={200} height={200}/>
             <p>{product.name}</p>
+            <button onClick={() => handleCreateSellingProduct(product.id)}>
+              Create Selling Product
+            </button>
+
+            {selectedProductId === product.id && (
+              <CreateSellingProduct productId={product.id} onClose={handleCloseForm} />
+            )}
           </li>
         ))}
-        
       </ul>
     </div>
   );
