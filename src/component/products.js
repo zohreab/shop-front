@@ -12,7 +12,7 @@ function Products() {
   const [selectedProductId, setSelectedProductId] = useState(null);
 
   useEffect(() => {
-    // Fetch all products on component mount
+    
     getAllProducts();
   }, []);
 
@@ -52,24 +52,24 @@ function Products() {
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
-    // Fetch filtered products only if searchTerm is not empty
+ 
     if (searchTerm.trim() !== '') {
       getFilteredProducts();
     } else {
-      // If search term is empty, fetch all products
+      
       getAllProducts();
     }
   };
 
   const boxStyle = {
-    width: '30%',
-    height: `250px`,
+    width: '60%',
     position: 'relative',
-    marginTop: '8%',
-    marginLeft: '32%',
+    margin: '8% auto',
     backgroundColor: '#adadad',
-    padding: '10px',
-    borderRadius: '10px'
+    padding: '20px',
+    borderRadius: '10px',
+    maxHeight: '70vh', 
+    overflowY: 'auto', 
   };
 
   const buttonStyle = {
@@ -112,6 +112,22 @@ function Products() {
     marginLeft: '32%',
   };
 
+    
+ 
+  
+  const ulStyle = {
+    overflowY: 'auto',
+    maxHeight: '500px', 
+  };
+  
+  const liStyle = {
+    border: '2px solid #ccc',
+    borderRadius: '8px',
+    padding: '10px',
+    marginBottom: '10px',
+    
+  };
+
 
   return (
       <div style={backgroundStyle}>
@@ -119,7 +135,7 @@ function Products() {
         <div style={boxStyle}>
     <div>
       <h2 style={textStyle}>All Products</h2>
-      {/* Search Bar */}
+   
       <form onSubmit={handleSearchSubmit}>
         <div style={containerinputStyle}>
         <input type="text" value={searchTerm} onChange={handleSearchInputChange} placeholder="Search by name" />
@@ -130,12 +146,12 @@ function Products() {
       </form>
 
    
-      {/* Product List */}
-      <ul>
+     
+      <ul style={ulStyle}>
         {products.map((product) => (
-          <li key={product.id}>
+          <li key={product.id} style={liStyle}>
             <img src={"http://localhost:8080"+ product.image} alt={product.name} width={200} height={200}/>
-            <p>{product.name}</p>
+            <p style={{ border: '2px solid #ccc', padding: '8px' }}>{product.name}</p>
             <button onClick={() => handleCreateSellingProduct(product.id)}>
               Create Selling Product
             </button>

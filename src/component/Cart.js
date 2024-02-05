@@ -3,12 +3,18 @@ import axios from 'axios';
 import { setAuthHeaders } from '../service/auth';
 import DeleteFromCart from "./DeleteFromCart"
 import EditCartProduct from "./EditCartProduct"
+import Balance from "./Balance"
+import DepositHistory from "./DepositHistory";
+import BuyHistory from "./BuyHistory";
+import Buy from "./Buy";
 import back_img from "../img/AllProductsBack.png";
 import Navbar from "./Navbar";
 
 function Cart() {
   const [cartProducts, setCartProducts] = useState([]);
-  
+  const [showDepositHistory, setShowDepositHistory] = useState(false);
+  const [showBuyHistory, setShowBuyHistory] = useState(false);
+
   useEffect(() => {
     getAllSellingProducts();
   }, []);
@@ -29,7 +35,23 @@ function Cart() {
     }
   };
 
+
+  const showDepositHistoryHandler = () => {
+    setShowDepositHistory(true);
+  };
   
+  const hideDepositHistoryHandler = () => {
+    setShowDepositHistory(false);
+  };
+
+  const showBuyHistoryHandler = () => {
+    setShowBuyHistory(true);
+  };
+  
+  const hideBuyHistoryHandler = () => {
+    setShowBuyHistory(false);
+  };
+
   const getColorLabel = (colorKey) => {
     
     const colorMapping = {
@@ -46,91 +68,118 @@ function Cart() {
   
     return colorMapping[colorKey] || colorKey;
   };
-
   const boxStyle = {
-    width: '30%',
-    height: `250px`,
+    width: '60%',
     position: 'relative',
-    marginTop: '8%',
-    marginLeft: '32%',
+    margin: '1% auto',
     backgroundColor: '#adadad',
-    padding: '10px',
-    borderRadius: '10px'
+    padding: '50px',
+    borderRadius: '10px',
+    maxHeight: '70vh', 
+    overflowY: 'auto', 
   };
-
-  const buttonStyle = {
-    width: '15%',
-    height: `20px`,
-    borderRadius: '30px',
-    position: 'relative',
-    marginTop: `10%`,
-    marginLeft: '25%',
-    marginRight: '25%',
-    backgroundColor: '#138324',
-    padding: '10px',
-    margin: '0 auto',
-  };
-
-  const containerinputStyle = {
-    position: 'relative',
-    width: '170px',
-    height: '24px',
-    marginTop: '50px',
-    marginLeft: '85px',
-    borderRadius: '30px',
-    padding: '15px',
-    background: '#707070',
-    boxShadow: '14px 14px 80px #cbced1, -14px -14px 90px white',
-    alignItems: 'center',
-    justifyContent: 'center',
-  };
-
+  
+ 
+  
   const backgroundStyle = {
     backgroundImage: `url(${back_img})`,
     backgroundSize: 'cover',
     minHeight: '100vh',
     padding: '20px',
-    position: 'relative',
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    overflowY: 'auto',
   };
-
+  
   const textStyle = {
     marginLeft: '32%',
   };
+  
+  const ulStyle = {
+    overflowY: 'auto',
+    maxHeight: '500px', 
+  };
+  
+  const liStyle = {
+    border: '2px solid #ccc',
+    borderRadius: '8px',
+    padding: '10px',
+    marginBottom: '10px',
+    
+  };
+ 
 
   return (
     <div style={backgroundStyle}>
       <Navbar />
+      <Balance />
+      <div>
+      <button onClick={showDepositHistoryHandler} style={{border: '2px solid #ccc', padding: '1px' , color:'White', marginTop:10, backgroundColor:"black"}}>Show Deposit History</button>
+
+          {showDepositHistory && (<>
+              <DepositHistory />
+              
+              <button onClick={hideDepositHistoryHandler} style={{border: '2px solid #ccc', padding: '1px' , color:'White', marginTop:10, backgroundColor:"black"}}>Hide Deposit History</button>
+            </>
+          )}
+      </div>
+      <div>
+      <button onClick={showBuyHistoryHandler}  style={{border: '2px solid #ccc', padding: '1px' , color:'White',  marginTop:10,  backgroundColor:"black"}}>Show Buy History</button>
+
+          {showBuyHistory && (<>
+              <BuyHistory />
+              
+              <button onClick={hideBuyHistoryHandler} style={{border: '2px solid #ccc', padding: '1px' , color:'White', marginTop:10, backgroundColor:"black"}} >Hide Buy History</button>
+            </>
+          )}
+          </div>
       <div style={boxStyle}>
+      <h2 style={textStyle}>All Cart Products</h2>
         <div>
+        <ul style={ulStyle}>
           {cartProducts.map((cartProduct) => (
-            <div key={cartProduct.id}>
+            <li key={cartProduct.id} style={liStyle}>
            
              
               {cartProduct.details && (
                 <div>
                      <img src={"http://localhost:8080"+cartProduct.details.image} alt={cartProduct.details.name} width={200} height={200} />
                     
-                  <p>Name: {cartProduct.details.name}</p>
-                  <p>Color: {getColorLabel(cartProduct.details.color)}</p>
-                  <p>Count: {cartProduct.count}</p>
+                  <p style={{ border: '2px solid #ccc', padding: '8px' }}> Name: {cartProduct.details.name}</p>
+                  <p style={{ border: '2px solid #ccc', padding: '8px' }}>Color: {getColorLabel(cartProduct.details.color)}</p>
+                  <p style={{ border: '2px solid #ccc', padding: '8px' }}>Count: {cartProduct.count}</p>
                   
                   <DeleteFromCart
                   sellingProductId={cartProduct.id}
                   onSuccess={(updatedCart) => alert('Product deleted from cart!', updatedCart)}
                   
                 />
-                
+
                 <EditCartProduct
                   sellingProductId={cartProduct.id}
                   onSuccess={(updatedCart) => alert('Product quantity edited!', updatedCart)}
                  
                 />
+
+              <Buy
+                  sellingProductId={cartProduct.id}
+                  onSuccess={(updatedCart) => alert('bought the product successfully!', updatedCart)}
+                 
+                />
+
                 </div>
+
               )}
-            </div>
+            </li>
+           
           ))}
+          </ul>
         </div>
       </div>
+      
     </div>
   );
 }

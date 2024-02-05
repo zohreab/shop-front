@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { setAuthHeaders } from '../service/auth';
-import SellingProductPriceHistory from './SellingProductPriceHistory'
+
 import back_img from "../img/AllProductsBack.png";
 import Navbar from "./Navbar";
 import { useNavigate } from 'react-router-dom'; 
@@ -83,89 +83,88 @@ function CustomerHome() {
       
     
       const boxStyle = {
-        width: '30%',
-        height: `250px`,
+        width: '60%',
         position: 'relative',
-        marginTop: '8%',
-        marginLeft: '32%',
+        margin: '8% auto',
         backgroundColor: '#adadad',
-        padding: '10px',
-        borderRadius: '10px'
+        padding: '20px',
+        borderRadius: '10px',
+        maxHeight: '70vh', 
+        overflowY: 'auto', 
       };
     
-      const buttonStyle = {
-        width: '15%',
-        height: `20px`,
-        borderRadius: '30px',
-        position: 'relative',
-        marginTop: `10%`,
-        marginLeft: '25%',
-        marginRight: '25%',
-        backgroundColor: '#138324',
-        padding: '10px',
-        margin: '0 auto',
-      };
-    
-    
-      const containerinputStyle = {
-        position: 'relative',
-        width: '170px',
-        height: '24px',
-        marginTop: '50px',
-        marginLeft: '85px',
-        borderRadius: '30px',
-        padding: '15px',
-        background: '#707070',
-        boxShadow: '14px 14px 80px #cbced1, -14px -14px 90px white',
-        alignItems: 'center',
-        justifyContent: 'center',
-      };
-    
+      
+     
+      
       const backgroundStyle = {
-        backgroundImage:`url(${back_img})`,
+        backgroundImage: `url(${back_img})`,
         backgroundSize: 'cover',
         minHeight: '100vh',
         padding: '20px',
-        position: 'relative',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        overflowY: 'auto',
       };
-    
-      const textStyle= {
+      
+      const textStyle = {
         marginLeft: '32%',
       };
+      
+      const ulStyle = {
+        overflowY: 'auto',
+        maxHeight: '500px', 
+      };
+      
+      const liStyle = {
+        border: '2px solid #ccc',
+        borderRadius: '8px',
+        padding: '10px',
+        marginBottom: '10px',
+        
+      };
+
     
-    
-     
+      
       return (
         <div style={backgroundStyle}>
           <Navbar />
           <div style={boxStyle}>
+          <div>
+            <button onClick={navigateTocart} style={{ border: '2px solid white', padding: '10px' , marginLeft:"45%", backgroundColor:"black", color:"white"}}>Cart</button>
+          </div>
             <div>
               <h2 style={textStyle}>All Selling Products</h2>
-             
-              <ul>
+              <div >
+            
+              </div>
+              <ul style={ulStyle}>
                 {sellingProducts.map((product) => (
-                  <li key={product.id}>
-                    <img src={"http://localhost:8080"+ product.image} alt={product.name} width={200} height={200} />
-                    <p>Name: {product.name}</p>
-                    <p>Color: {getColorLabel(product.color)}</p>
-                    <p>Size: {product.size}</p>
-                    <p>Properties: {JSON.stringify(product.properties)}</p>
-                    <p>Price: ${product.price}</p>
-                    <p>Stock Count: {product.stock_count}</p>
-
+                  <li key={product.id} style={liStyle}>
+                    <img src={`http://localhost:8080${product.image}`} alt={product.name} width={200} height={200}  />
+                    <p style={{ border: '2px solid #ccc', padding: '8px' }}>Name: {product.name}</p>
+                    <p style={{ border: '2px solid #ccc', padding: '8px' }}>Color: {getColorLabel(product.color)}</p>
+                    <p style={{ border: '2px solid #ccc', padding: '8px' }}>Size: {product.size}</p>
+                    <p style={{ border: '2px solid #ccc', padding: '8px' }}>Properties: {JSON.stringify(product.properties)}</p>
+                    <p style={{ border: '2px solid #ccc', padding: '8px' }}>Price: ${product.price}</p>
+                    <p style={{ border: '2px solid #ccc', padding: '8px' }}>Stock Count: {product.stock_count}</p>
                     <AddToCart
-                  sellingProductId={product.id}
-                  onSuccess={(updatedCart) => alert('Product added to cart!', updatedCart)}
-                  onError={(error) => alert('Error adding to cart:', error)}
-                />
+                      sellingProductId={product.id}
+                      onSuccess={(updatedCart) => alert('Product added to cart!', updatedCart)}
+                      onError={(error) => alert('Error adding to cart:', error)}
+                    />
                   </li>
                 ))}
               </ul>
             </div>
+           
           </div>
-          <div> <button onClick={navigateTocart }>Cart</button></div>
+          
         </div>
       );
+      
     }
 
 export default CustomerHome;

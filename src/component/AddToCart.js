@@ -19,10 +19,10 @@ function AddToCart({ sellingProductId, onSuccess, onError }) {
         }
       );
 
-      onSuccess(response.data); // Handle success, maybe update the cart state in the parent component
+      onSuccess(response.data);
     } catch (error) {
       alert('Error adding to cart:', error);
-      onError(error); // Handle error, maybe show an error message to the user
+      onError(error); 
     }
   };
 

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { setAuthHeaders } from '../service/auth';
 import EditSellingProduct from './EditSellingProduct';
-import SellingProductPriceHistory from './SellingProductPriceHistory'
 import back_img from "../img/AllProductsBack.png";
 import Navbar from "./Navbar";
 
@@ -27,10 +26,6 @@ function SellingProducts() {
   };
 
   const handleEditSellingProduct = (productId) => {
-    setSelectedProductId(productId);
-  };
-
-  const handlePriceHistory = (productId) => {
     setSelectedProductId(productId);
   };
 
@@ -83,29 +78,15 @@ function SellingProducts() {
   };
 
   const boxStyle = {
-    width: '30%',
-    height: `250px`,
+    width: '60%',
     position: 'relative',
-    marginTop: '8%',
-    marginLeft: '32%',
+    margin: '8% auto',
     backgroundColor: '#adadad',
-    padding: '10px',
-    borderRadius: '10px'
+    padding: '20px',
+    borderRadius: '10px',
+    maxHeight: '70vh', 
+    overflowY: 'auto', 
   };
-
-  const buttonStyle = {
-    width: '15%',
-    height: `20px`,
-    borderRadius: '30px',
-    position: 'relative',
-    marginTop: `10%`,
-    marginLeft: '25%',
-    marginRight: '25%',
-    backgroundColor: '#138324',
-    padding: '10px',
-    margin: '0 auto',
-  };
-
 
   const containerinputStyle = {
     position: 'relative',
@@ -128,6 +109,18 @@ function SellingProducts() {
     padding: '20px',
     position: 'relative',
   };
+  const ulStyle = {
+    overflowY: 'auto',
+    maxHeight: '500px', 
+  };
+  
+  const liStyle = {
+    border: '2px solid #ccc',
+    borderRadius: '8px',
+    padding: '10px',
+    marginBottom: '10px',
+    
+  };
 
   const textStyle= {
     marginLeft: '32%',
@@ -143,16 +136,16 @@ function SellingProducts() {
           <h2 style={textStyle}>All Selling Products</h2>
           
           {/* Product List */}
-          <ul>
+          <ul style={ulStyle}>
             {sellingProducts.map((product) => (
-              <li key={product.id}>
+              <li key={product.id} style={liStyle}>
                 <img src={"http://localhost:8080"+ product.image} alt={product.name} width={200} height={200} />
-                <p>Name: {product.name}</p>
-                <p>Color: {getColorLabel(product.color)}</p>
-                <p>Size: {product.size}</p>
-                <p>Properties: {JSON.stringify(product.properties)}</p>
-                <p>Price: ${product.price}</p>
-                <p>Stock Count: {product.stock_count}</p>
+                <p style={{ border: '2px solid #ccc', padding: '8px' }}>Name: {product.name}</p>
+                <p style={{ border: '2px solid #ccc', padding: '8px' }}>Color: {getColorLabel(product.color)}</p>
+                <p style={{ border: '2px solid #ccc', padding: '8px' }}>Size: {product.size}</p>
+                <p style={{ border: '2px solid #ccc', padding: '8px' }}>Properties: {JSON.stringify(product.properties)}</p>
+                <p style={{ border: '2px solid #ccc', padding: '8px' }}>Price: ${product.price}</p>
+                <p style={{ border: '2px solid #ccc', padding: '8px' }}>Stock Count: {product.stock_count}</p>
                 
                 <button onClick={() => handleEditSellingProduct(product.id)}>
                   Edit Selling Product
@@ -165,15 +158,7 @@ function SellingProducts() {
                   />
                 )}
 
-                <button onClick={() => handlePriceHistory(product.id)}>
-                  Show price history 
-                </button>
-                {selectedProductId === product.id && (
-                  <SellingProductPriceHistory
-                    productId={product.id}
-                    onClose={handleCloseForm}
-                  />
-                )}
+               
 
               </li>
             ))}
