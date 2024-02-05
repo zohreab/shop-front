@@ -64,7 +64,7 @@ const SellerHome = () => {
       <Navbar/>
         <div style={boxStyle}>
 
-      <h1 style={textStyle}>Seller Home Page</h1>
+      <h1 style={textStyle}>Seller Homepage</h1>
       <div>
         <button onClick={navigateToCreateProduct} style={buttonStyle}>Create Product View</button>
       </div>

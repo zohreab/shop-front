@@ -141,7 +141,7 @@ function CustomerHome() {
           <Navbar />
           <div style={boxStyle}>
           <div>
-              <h2 style={textStyle}>All Selling Products</h2>
+              <h2 style={textStyle}>Customer Homepage</h2>
               <div >
           <div>
             <button onClick={navigateTocart} style={buttonStyle}>Cart</button>

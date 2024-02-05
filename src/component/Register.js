@@ -192,8 +192,8 @@ import { useNavigate } from "react-router-dom";
         </div>
         </div>
 
-        <div style={containerinputStyle}>
-          <select onChange={(e) => setUserType(e.target.value)}
+        <div>
+          <select style={containerinputStyle} onChange={(e) => setUserType(e.target.value)}
           >
           <option value=""></option>
             <option value="CUSTOMER">Customer</option>

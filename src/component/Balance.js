@@ -24,18 +24,41 @@ function Balance() {
     }
   };
 
+    const buttonStyle = {
+        borderRadius:'20px',
+        width: '150px',
+        padding: '10px' ,
+        marginLeft:"98px",
+        marginTop:"25px",
+        backgroundColor:"#8067a2",
+        color:"white"
+    };
+
+    const containerinputStyle = {
+        position: 'relative',
+        width: '80px',
+        height: '7px',
+        marginTop: '8px',
+        marginLeft: '10px',
+        borderRadius: '30px',
+        padding: '15px',
+        background: '#ffffff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    };
+
   return (
     <div>
       
-      <label htmlFor="amount" style={{border: '2px solid #ccc', padding: '1px' , color:'White', marginRight:5,  backgroundColor:"black"}}>increase balance: </label>
-      <input
+      <label htmlFor="amount">increase balance: </label>
+      <input style={containerinputStyle}
         type="number"
         id="amount"
         name="amount"
         value={amount}
         onChange={handleAmountChange}
       />
-      <button onClick={handleDeposit} style={{border: '2px solid #ccc', padding: '1px' , color:'White', marginTop:"2%", backgroundColor:"black"}}>Deposit</button>
+      <button onClick={handleDeposit} style={buttonStyle}>Deposit</button>
 
       {newBalance !== null && (
         <div>

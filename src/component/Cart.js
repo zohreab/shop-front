@@ -69,14 +69,38 @@ function Cart() {
     return colorMapping[colorKey] || colorKey;
   };
   const boxStyle = {
-    width: '60%',
+    width: '30%',
+    height: `380px`,
     position: 'relative',
-    margin: '1% auto',
+    marginTop: '5%',
+    marginLeft: '32%',
     backgroundColor: '#adadad',
-    padding: '50px',
-    borderRadius: '10px',
-    maxHeight: '70vh', 
-    overflowY: 'auto', 
+    padding: '10px',
+    borderRadius: '10px'
+  };
+
+  const buttonStyle = {
+    borderRadius:'20px',
+    width: '150px',
+    padding: '10px' ,
+    marginLeft:"98px",
+    marginTop:"25px",
+    backgroundColor:"#8067a2",
+    color:"white"
+  };
+
+
+  const containerinputStyle = {
+    position: 'relative',
+    width: '150px',
+    height: '20px',
+    marginTop: '11px',
+    marginLeft: '80px',
+    borderRadius: '30px',
+    padding: '15px',
+    background: '#ffffff',
+    alignItems: 'center',
+    justifyContent: 'center',
   };
 
   
@@ -94,7 +118,7 @@ function Cart() {
   };
   
   const textStyle = {
-    marginLeft: '32%',
+    marginLeft: '25%',
   };
   
   const ulStyle = {
@@ -114,29 +138,29 @@ function Cart() {
   return (
     <div style={backgroundStyle}>
       <Navbar />
-      <Balance />
-      <div>
-      <button onClick={showDepositHistoryHandler} style={{border: '2px solid #ccc', padding: '1px' , color:'White', marginTop:10, backgroundColor:"black"}}>Show Deposit History</button>
+      <div style={boxStyle}>
+        <h2 style={textStyle}>All Cart Products</h2>
+        <Balance />
+        <div>
+      <button onClick={showDepositHistoryHandler} style={buttonStyle}>Show Deposit History</button>
 
           {showDepositHistory && (<>
               <DepositHistory />
               
-              <button onClick={hideDepositHistoryHandler} style={{border: '2px solid #ccc', padding: '1px' , color:'White', marginTop:10, backgroundColor:"black"}}>Hide Deposit History</button>
+              <button onClick={hideDepositHistoryHandler} style={buttonStyle}>Hide Deposit History</button>
             </>
           )}
       </div>
       <div>
-      <button onClick={showBuyHistoryHandler}  style={{border: '2px solid #ccc', padding: '1px' , color:'White',  marginTop:10,  backgroundColor:"black"}}>Show Buy History</button>
+      <button onClick={showBuyHistoryHandler}  style={buttonStyle}>Show Buy History</button>
 
           {showBuyHistory && (<>
               <BuyHistory />
               
-              <button onClick={hideBuyHistoryHandler} style={{border: '2px solid #ccc', padding: '1px' , color:'White', marginTop:10, backgroundColor:"black"}} >Hide Buy History</button>
+              <button onClick={hideBuyHistoryHandler} style={buttonStyle} >Hide Buy History</button>
             </>
           )}
           </div>
-      <div style={boxStyle}>
-      <h2 style={textStyle}>All Cart Products</h2>
         <div>
         <ul style={ulStyle}>
           {cartProducts.map((cartProduct) => (
@@ -178,8 +202,7 @@ function Cart() {
           </ul>
         </div>
       </div>
-      
-    </div>
+      </div>
   );
 }
 

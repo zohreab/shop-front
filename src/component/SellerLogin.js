@@ -59,14 +59,14 @@ const SellerLogin = () => {
     position: 'relative',
     width: '170px',
     height: '20px',
-    marginTop: '10px',
-    marginLeft: '80px',
+    marginTop: '6px',
+    marginLeft: '68px',
+    marginRight: '8px',
     borderRadius: '30px',
     padding: '15px',
     background: '#ffffff',
     alignItems: 'center',
     justifyContent: 'center',
-    margin: '0 auto',
   };
 
   const backgroundStyle = {

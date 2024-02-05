@@ -91,7 +91,6 @@ function Products() {
     borderRadius: '30px',
     padding: '15px',
     background: '#ffffff',
-    boxShadow: '14px 14px 80px #cbced1, -14px -14px 90px white',
     alignItems: 'center',
     justifyContent: 'center',
   };
