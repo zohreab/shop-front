@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# OnlineShop Frontend Documentation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
+## Requirements
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm install` to install the package. 
 
-Runs the app in the development mode.\
+then 
+### `npm start` to run the app in development mode.
+
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Files Documentation
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### App
+This file sets up the routing for the application using react-router-dom, mapping various paths to their respective components. This allows the application to display different pages based on the URL path, enabling navigation through the application.
 
-### `npm run build`
+### Home
+This file defines the `Home` component of the application. It sets up a home page with three clickable icons for seller login, customer login, and registration. The `Home` component is exported for use in other parts of the application.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Register
+This file defines the `Register` component of the application. It sets up a registration form with fields for username, password, email, phone number, first name, last name, and user type. The form data is managed using React's `useState` hook and submitted to a server endpoint using `axios`. Upon successful registration, the user is redirected to the appropriate login page based on their user type. The component also handles and displays any error messages received from the server.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### CustomerLogin, SellerLogin
+These files create a login interface with username and password fields. The form data is managed using the `useState` hook from React and is sent to a server endpoint via `axios`. If the login is successful, the access and refresh tokens are saved in local storage and the user is navigated to the seller and customer home pages.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Navbar
+Navbar creates a navigation bar with links to the Home, About, and Contact pages. The `useNavigate` hook from `react-router-dom` is used to programmatically navigate to the About page when its link is clicked.
 
-### `npm run eject`
+### CustomerHome, SellerHome
+`CustomerHome` displays a list of all selling products and provides a search functionality to filter products by name. Each product in the list has an `AddToCart` component associated with it. `SellerHome` sets up a seller homepage with buttons to navigate to the Create Product View, Products, and Selling Products pages.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### CreateProduct
+This file sets up a product creation form with fields for product name and image. When the form is submitted, it sends a POST request to the server with the form data to create a new product. The component also handles and logs any errors that occur during the product creation process.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Products
+`Products` file displays a list of all products and provides a search functionality to filter products by name. Each product in the list has a button to create a selling product. When this button is clicked, the `CreateSellingProduct` component is rendered for the selected product. The list of products is fetched from a server endpoint using `axios`, and the component handles and logs any errors that occur during the fetching process.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### SellingProducts
+`SellingProducts` displays a list of all selling products and provides a search functionality to filter products by name. Each product in the list has an `EditSellingProduct` component associated with it.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Cart
+`Cart` file displays a list of all products in the cart. Each product in the list has `DeleteFromCart`, `EditCartProduct`, and `Buy` components associated with it. The component also provides the functionality to view the deposit history and buy history.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
