@@ -27,7 +27,7 @@ This file defines the `Register` component of the application. It sets up a regi
 These files create a login interface with username and password fields. The form data is managed using the `useState` hook from React and is sent to a server endpoint via `axios`. If the login is successful, the access and refresh tokens are saved in local storage and the user is navigated to the seller and customer home pages.
 
 ### Navbar
-Navbar creates a navigation bar with links to the Home, About, and Contact pages. The `useNavigate` hook from `react-router-dom` is used to programmatically navigate to the About page when its link is clicked.
+Navbar creates a navigation bar with links to the Home, About, and Contact pages. The `useNavigate` hook from `react-router-dom` is used to programmatically navigate to the Home, About, and Contact pages when its link is clicked.
 
 ### CustomerHome, SellerHome
 `CustomerHome` displays a list of all selling products and provides a search functionality to filter products by name. Each product in the list has an `AddToCart` component associated with it. `SellerHome` sets up a seller homepage with buttons to navigate to the Create Product View, Products, and Selling Products pages.
