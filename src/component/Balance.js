@@ -50,7 +50,7 @@ function Balance() {
   return (
     <div>
       
-      <label htmlFor="amount">increase balance: </label>
+      <label htmlFor="amount" style={{color:"white"}}>increase balance: </label>
       <input style={containerinputStyle}
         type="number"
         id="amount"

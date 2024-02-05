@@ -11,7 +11,7 @@ function SellingProducts() {
   const [selectedProductId, setSelectedProductId] = useState(null);
 
   useEffect(() => {
-    // Fetch all products on component mount
+
     getAllSellingProducts();
   }, []);
 
@@ -78,14 +78,15 @@ function SellingProducts() {
   };
 
   const boxStyle = {
-    width: '40%',
-    height: '330px',
+    width: '50%',
+    height: '350px',
     position: 'relative',
-    margin: '5% auto',
-    marginLeft: '325px',
+    marginTop: '60px',
+    margin: '7% auto',
     backgroundColor: '#adadad',
     padding: '20px',
     borderRadius: '10px',
+    overflowY: 'auto',
   };
 
   const containerinputStyle = {

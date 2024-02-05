@@ -69,14 +69,15 @@ function Cart() {
     return colorMapping[colorKey] || colorKey;
   };
   const boxStyle = {
-    width: '30%',
-    height: `380px`,
+    width: '50%',
+    height: '350px',
     position: 'relative',
-    marginTop: '5%',
-    marginLeft: '32%',
+    marginTop: '30px',
+    margin: '7% auto',
     backgroundColor: '#adadad',
-    padding: '10px',
-    borderRadius: '10px'
+    padding: '20px',
+    borderRadius: '10px',
+    overflowY: 'auto',
   };
 
   const buttonStyle = {
@@ -84,24 +85,13 @@ function Cart() {
     width: '150px',
     padding: '10px' ,
     marginLeft:"98px",
-    marginTop:"25px",
+    marginTop:"5px",
+    marginBottom:"10px",
     backgroundColor:"#8067a2",
     color:"white"
   };
 
 
-  const containerinputStyle = {
-    position: 'relative',
-    width: '150px',
-    height: '20px',
-    marginTop: '11px',
-    marginLeft: '80px',
-    borderRadius: '30px',
-    padding: '15px',
-    background: '#ffffff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  };
 
   
   const backgroundStyle = {
@@ -138,9 +128,7 @@ function Cart() {
   return (
     <div style={backgroundStyle}>
       <Navbar />
-      <div style={boxStyle}>
-        <h2 style={textStyle}>All Cart Products</h2>
-        <Balance />
+      <Balance />
         <div>
       <button onClick={showDepositHistoryHandler} style={buttonStyle}>Show Deposit History</button>
 
@@ -162,6 +150,9 @@ function Cart() {
           )}
           </div>
         <div>
+      <div style={boxStyle}>
+        <h2 style={textStyle}>All Cart Products</h2>
+        
         <ul style={ulStyle}>
           {cartProducts.map((cartProduct) => (
             <li key={cartProduct.id} style={liStyle}>

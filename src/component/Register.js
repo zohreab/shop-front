@@ -36,7 +36,7 @@ import { useNavigate } from "react-router-dom";
     axios.post('http://localhost:8080/register/', registerPayload)
       .then(response => {
         console.log(response.data);
-        // Perform actions upon successful registration
+    
         alert("successful");
         if (userType === 'CUSTOMER') {
           navigate("/customerlogin");

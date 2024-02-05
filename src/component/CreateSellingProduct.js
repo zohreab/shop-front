@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { setAuthHeaders } from '../service/auth';
 import back_img from "../img/AllProductsBack.png";
-import Navbar from "./Navbar";
+
 
 function CreateSellingProduct({ productId, onClose }) {
   const [color, setColor] = useState('');
@@ -16,20 +16,20 @@ function CreateSellingProduct({ productId, onClose }) {
     event.preventDefault();
     try {
       setAuthHeaders(axios);
-      const propertiesObject = JSON.parse(properties); // Parse properties as JSON
+      const propertiesObject = JSON.parse(properties); 
       const response = await axios.post('http://localhost:8080/shop/selling-product/create/', {
         product_id: productId,
         color,
         size,
         price,
-        properties: propertiesObject, // Use the parsed JSON object
+        properties: propertiesObject, 
         stock_count: stockCount,
       });
       console.log('Selling product created:', response.data);
-      onClose(); // Close the form after successful submission
+      onClose(); 
     } catch (error) {
       if (error.response && error.response.data && error.response.data.error) {
-        setErrors({ color: error.response.data.error });  // Store color error separately
+        setErrors({ color: error.response.data.error });  
       } else if (error.response && error.response.data && error.response.data.errors) {
         setErrors(error.response.data.errors);
       } else {
@@ -47,18 +47,17 @@ function CreateSellingProduct({ productId, onClose }) {
         backgroundColor:"#8067a2",
         color:"white"
     }
-
     const boxStyle = {
-        width: '40%',
-        height: '400px',
-        position: 'relative',
-        marginLeft: '26.5%',
-        marginTop: '3%',
-        backgroundColor: '#adadad',
-        padding: '20px',
-        borderRadius: '10px',
+      width: '50%',
+      height: '350px',
+      position: 'relative',
+      marginTop: '60px',
+      margin: '7% auto',
+      backgroundColor: '#adadad',
+      padding: '20px',
+      borderRadius: '10px',
+      overflowY: 'auto',
     };
-
     const backgroundStyle = {
         backgroundImage:`url(${back_img})`,
         backgroundSize: 'cover',
@@ -81,7 +80,7 @@ function CreateSellingProduct({ productId, onClose }) {
 
   return (
       <div style={backgroundStyle}>
-          <Navbar/>
+        
           <div style={boxStyle}>
           <form onSubmit={handleSubmit}>
       {errors && errors.color && (

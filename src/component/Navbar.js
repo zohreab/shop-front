@@ -1,13 +1,20 @@
 // Navbar.js
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; 
+
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const navigateToAbout = () => {
+    navigate('/about');
+  };
   return (
     <nav style={navbarStyle}>
       <ul style={ulStyle}>
         <div style={containerinputStyle}><a href="/" style={{color:'white'}}>Home</a></div>
-        <li style={containerinputStyle}><a href="/about"style={{color:'white'}}>About</a></li>
+        <li style={containerinputStyle}><div onClick={navigateToAbout} style={{color:'white'}}>About </div></li>
         <li style={containerinputStyle}><a href="/contact" style={{color:'white'}}>Contact</a></li>
       </ul>
     </nav>

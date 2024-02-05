@@ -62,15 +62,17 @@ function Products() {
   };
 
   const boxStyle = {
-    width: '40%',
-    height: '400px',
+    width: '50%',
+    height: '350px',
     position: 'relative',
-    marginLeft: '26.5%',
-    marginTop: '3%',
+    marginTop: '60px',
+    margin: '7% auto',
     backgroundColor: '#adadad',
     padding: '20px',
     borderRadius: '10px',
+    overflowY: 'auto',
   };
+
 
   const buttonStyle = {
     borderRadius:'20px',
