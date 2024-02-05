@@ -11,8 +11,14 @@ import CreateSellingProduct  from './component/CreateSellingProduct'
 import Products  from './component/products'
 import SellingProducts from  './component/SellingProducts'
 import Cart from  './component/Cart'
-
-
+import EditSellingProduct from  './component/EditSellingProduct'
+import DepositHistory from  './component/DepositHistory'
+import DeleteFromCart from  './component/DeleteFromCart'
+import BuyHistory from  './component/BuyHistory'
+import Balance from  './component/Balance'
+import AddToCart from  './component/AddToCart'
+import Buy from  './component/Buy'
+import EditCartProduct from  './component/EditCartProduct'
 
 
 const App = () => {
@@ -30,7 +36,20 @@ const App = () => {
       <Route path="/product" element={<Products/>} />
       <Route path="/sellingproduct" element={<SellingProducts/>} />
       <Route path="/cart" element={<Cart/>} />
-     
+
+
+      <Route path="/editsellingproduct" element={<EditSellingProduct/>} />
+      <Route path="/deposithistory" element={<DepositHistory/>} />
+      <Route path="/deletefromcart" element={<DeleteFromCart/>} />
+      <Route path="/buyhistory" element={<BuyHistory/>} />
+      <Route path="/buy" element={<Buy/>} />
+      <Route path="/balance" element={<Balance/>} />
+      <Route path="/addtocart" element={<AddToCart/>} />
+      <Route path="/editcartproduct" element={<EditCartProduct/>} />
+
+
+
+
       </Routes>
     </BrowserRouter>
   );

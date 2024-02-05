@@ -34,39 +34,36 @@ const SellerLogin = () => {
 
   const boxStyle = {
     width: '30%',
-    height: `250px`,
+    height: `280px`,
     position: 'relative',
     marginTop: '8%',
     marginLeft: '32%',
     backgroundColor: '#adadad',
-    padding: '10px',
+    padding: '13px',
     borderRadius: '10px'
   };
 
   const buttonStyle = {
-    width: '15%',
-    height: `20px`,
-    borderRadius: '30px',
-    position: 'relative',
-    marginTop: `5%`,
-    marginLeft: '25%',
-    marginRight: '25%',
-    backgroundColor: '#138324',
-    padding: '10px',
-    margin: '0 auto',
-  };
+    borderRadius:'20px',
+    width: '120px',
+    padding: '10px' ,
+    marginLeft:"120px",
+    marginTop:"20px",
+    backgroundColor:"green",
+    color:"white",
+    fontSize: "14px"
+  }
 
 
   const containerinputStyle = {
     position: 'relative',
     width: '170px',
     height: '20px',
-    marginTop: '8px',
-    marginRight: '8px',
+    marginTop: '10px',
+    marginLeft: '80px',
     borderRadius: '30px',
     padding: '15px',
-    background: '#707070',
-    boxShadow: '14px 14px 80px #cbced1, -14px -14px 90px white',
+    background: '#ffffff',
     alignItems: 'center',
     justifyContent: 'center',
     margin: '0 auto',
@@ -81,34 +78,34 @@ const SellerLogin = () => {
   };
 
   const textStyle= {
-    marginLeft: '40%',
+    marginLeft: '32%',
   };
 
   return (
     <div style={backgroundStyle}>
       <Navbar/>
       <div style={boxStyle}>
-      <h2 style={textStyle}>Login</h2>
+      <h2 style={textStyle}>Seller Login</h2>
       {error && <p>{error}</p>}
       <form onSubmit={(e) => e.preventDefault()}>
-        <div style={containerinputStyle}>
-        <input
+        <div>
+        <input style={containerinputStyle}
           type="text"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
         </div>
-        <div style={containerinputStyle}>
-        <input
+        <div>
+        <input style={containerinputStyle}
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         </div>
-        <div style={buttonStyle}>
-        <button onClick={handleLogin}>Login</button>
+        <div>
+        <button style={buttonStyle} onClick={handleLogin}>Login</button>
         </div>
       </form>
       </div>

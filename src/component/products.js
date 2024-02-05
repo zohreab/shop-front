@@ -62,39 +62,35 @@ function Products() {
   };
 
   const boxStyle = {
-    width: '60%',
+    width: '40%',
+    height: '400px',
     position: 'relative',
-    margin: '8% auto',
+    marginLeft: '26.5%',
+    marginTop: '3%',
     backgroundColor: '#adadad',
     padding: '20px',
     borderRadius: '10px',
-    maxHeight: '70vh', 
-    overflowY: 'auto', 
   };
 
   const buttonStyle = {
-    width: '15%',
-    height: `20px`,
-    borderRadius: '30px',
-    position: 'relative',
-    marginTop: `10%`,
-    marginLeft: '25%',
-    marginRight: '25%',
-    backgroundColor: '#138324',
-    padding: '10px',
-    margin: '0 auto',
-  };
-
+    borderRadius:'20px',
+    width: '100px',
+    padding: '12px' ,
+    marginLeft:"25px",
+    marginTop:"1%",
+    backgroundColor:"green",
+    color:"white"
+  }
 
   const containerinputStyle = {
     position: 'relative',
-    width: '170px',
+    width: '250px',
     height: '24px',
-    marginTop: '50px',
-    marginLeft: '85px',
+    marginTop: '15px',
+    marginLeft: '25px',
     borderRadius: '30px',
     padding: '15px',
-    background: '#707070',
+    background: '#ffffff',
     boxShadow: '14px 14px 80px #cbced1, -14px -14px 90px white',
     alignItems: 'center',
     justifyContent: 'center',
@@ -109,12 +105,10 @@ function Products() {
   };
 
   const textStyle= {
-    marginLeft: '32%',
+    marginLeft: '35%',
   };
 
-    
- 
-  
+
   const ulStyle = {
     overflowY: 'auto',
     maxHeight: '500px', 
@@ -137,11 +131,11 @@ function Products() {
       <h2 style={textStyle}>All Products</h2>
    
       <form onSubmit={handleSearchSubmit}>
-        <div style={containerinputStyle}>
-        <input type="text" value={searchTerm} onChange={handleSearchInputChange} placeholder="Search by name" />
+        <div>
+        <input style={containerinputStyle} type="text" value={searchTerm} onChange={handleSearchInputChange} placeholder="Search by name" />
         </div>
-        <div style={buttonStyle}>
-        <button type="submit">Search</button>
+        <div>
+        <button style={buttonStyle} type="submit">Search</button>
         </div>
       </form>
 

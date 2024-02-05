@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { setAuthHeaders } from '../service/auth';
 import productBack from "../img/ProductBack.png";
-import back_img from "../img/Background.png";
 import Navbar from "./Navbar";
 
 const CreateProduct = () => {
@@ -45,7 +44,7 @@ const CreateProduct = () => {
 
   const boxStyle = {
     width: '30%',
-    height: `280px`,
+    height: `310px`,
     position: 'relative',
     marginTop: '8%',
     marginLeft: '32%',
@@ -55,31 +54,27 @@ const CreateProduct = () => {
   };
 
   const buttonStyle = {
-    width: '35%',
-    height: `25px`,
-    borderRadius: '30px',
-    position: 'relative',
-    marginTop: `7%`,
-    marginLeft: '25%',
-    marginRight: '25%',
-    backgroundColor: '#138324',
-    padding: '10px',
-    margin: '0 auto',
-  };
+    borderRadius:'20px',
+    width: '150px',
+    padding: '10px' ,
+    marginLeft:"98px",
+    marginTop:"25px",
+    backgroundColor:"green",
+    color:"white"
+  }
 
 
   const containerinputStyle = {
     position: 'relative',
-    width: '170px',
+    width: '150px',
     height: '20px',
-    marginTop: '10px',
-    marginRight: '8px',
+    marginTop: '11px',
+    marginLeft: '80px',
     borderRadius: '30px',
     padding: '15px',
-    background: '#707070',
+    background: '#ffffff',
     alignItems: 'center',
     justifyContent: 'center',
-    margin: '0 auto',
   };
 
   const backgroundStyle = {
@@ -91,7 +86,7 @@ const CreateProduct = () => {
   };
 
   const textStyle= {
-    marginLeft: '34%',
+    marginLeft: '25%',
     marginTop: '1%'
   };
 
@@ -101,25 +96,25 @@ const CreateProduct = () => {
       <Navbar/>
       <div style={boxStyle}>
     <div>
-      <h2 style={textStyle}>Seller Home</h2>
+      <h2 style={textStyle}>Create Product</h2>
 
       <div>
         <label style={textStyle} htmlFor="productName">Product Name:</label>
-        <div style={containerinputStyle}>
-        <input type="text" id="productName" value={name} onChange={handleNameChange} />
+        <div>
+        <input style={containerinputStyle} type="text" id="productName" value={name} onChange={handleNameChange} />
       </div>
       </div>
 
       <div>
         <label style={textStyle} htmlFor="productImage">Product Image:</label>
-        <div style={containerinputStyle}>
-        <input type="file" id="productImage" onChange={handleImageChange} />
+        <div>
+        <input style={containerinputStyle} type="file" id="productImage" onChange={handleImageChange} />
       </div>
       </div>
 
       <div>
-        <div style={buttonStyle}>
-        <button onClick={handleCreateProduct}>Create Product</button>
+        <div>
+        <button onClick={handleCreateProduct} style={buttonStyle}>Create Product</button>
       </div>
       </div>
 

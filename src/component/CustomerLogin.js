@@ -43,32 +43,28 @@ const CustomerLogin = () => {
   };
 
   const buttonStyle = {
-    width: '15%',
-    height: `20px`,
-    borderRadius: '30px',
-    position: 'relative',
-    marginTop: `5%`,
-    marginLeft: '25%',
-    marginRight: '25%',
-    backgroundColor: '#138324',
-    padding: '10px',
-    margin: '0 auto',
-  };
+    borderRadius:'20px',
+    width: '150px',
+    padding: '10px' ,
+    marginLeft:"105px",
+    marginTop:"25px",
+    backgroundColor:"green",
+    color:"white"
+  }
 
 
   const containerinputStyle = {
     position: 'relative',
     width: '170px',
     height: '20px',
-    marginTop: '8px',
+    marginTop: '6px',
+    marginLeft: '68px',
     marginRight: '8px',
     borderRadius: '30px',
     padding: '15px',
-    background: '#707070',
-    boxShadow: '14px 14px 80px #cbced1, -14px -14px 90px white',
+    background: '#ffffff',
     alignItems: 'center',
     justifyContent: 'center',
-    margin: '0 auto',
   };
 
   const backgroundStyle = {
@@ -80,7 +76,7 @@ const CustomerLogin = () => {
   };
 
   const textStyle= {
-    marginLeft: '40%',
+    marginLeft: '24%',
   };
 
 
@@ -88,27 +84,27 @@ const CustomerLogin = () => {
     <div style={backgroundStyle}>
       <Navbar/>
       <div style={boxStyle}>
-      <h2 style={textStyle}>Login</h2>
+      <h2 style={textStyle}>Customer Login</h2>
       {error && <p>{error}</p>}
       <form onSubmit={(e) => e.preventDefault()}>
-        <div style={containerinputStyle}>
-        <input
+        <div>
+        <input style={containerinputStyle}
           type="text"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
         </div>
-          <div style={containerinputStyle}>
-          <input
+          <div>
+          <input style={containerinputStyle}
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
           </div>
-        <div style={buttonStyle}>
-        <button onClick={handleLogin}>Login</button>
+        <div>
+        <button onClick={handleLogin} style={buttonStyle}>Login</button>
         </div>
       </form>
       </div>

@@ -78,14 +78,14 @@ function SellingProducts() {
   };
 
   const boxStyle = {
-    width: '60%',
+    width: '40%',
+    height: '330px',
     position: 'relative',
-    margin: '8% auto',
+    margin: '5% auto',
+    marginLeft: '325px',
     backgroundColor: '#adadad',
     padding: '20px',
     borderRadius: '10px',
-    maxHeight: '70vh', 
-    overflowY: 'auto', 
   };
 
   const containerinputStyle = {
@@ -123,7 +123,7 @@ function SellingProducts() {
   };
 
   const textStyle= {
-    marginLeft: '32%',
+    marginLeft: '28%',
   };
 
 

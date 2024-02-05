@@ -78,8 +78,7 @@ function Cart() {
     maxHeight: '70vh', 
     overflowY: 'auto', 
   };
-  
- 
+
   
   const backgroundStyle = {
     backgroundImage: `url(${back_img})`,

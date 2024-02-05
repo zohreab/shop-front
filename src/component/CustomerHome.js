@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { setAuthHeaders } from '../service/auth';
 
-import back_img from "../img/AllProductsBack.png";
+import back_img from "../img/CustomerHomeBack.png";
 import Navbar from "./Navbar";
 import { useNavigate } from 'react-router-dom'; 
 import AddToCart from "./AddToCart" 
@@ -83,18 +83,17 @@ function CustomerHome() {
       
     
       const boxStyle = {
-        width: '60%',
+        width: '50%',
+        height: '350px',
         position: 'relative',
-        margin: '8% auto',
+        marginTop: '60px',
+        margin: '7% auto',
         backgroundColor: '#adadad',
         padding: '20px',
         borderRadius: '10px',
-        maxHeight: '70vh', 
-        overflowY: 'auto', 
+        overflowY: 'auto',
       };
-    
-      
-     
+
       
       const backgroundStyle = {
         backgroundImage: `url(${back_img})`,
@@ -126,6 +125,15 @@ function CustomerHome() {
         
       };
 
+      const buttonStyle = {
+          borderRadius:'20px',
+          width: '150px',
+          padding: '10px' ,
+          marginLeft:"225px",
+          backgroundColor:"green",
+          color:"white"
+      }
+
     
       
       return (
@@ -133,11 +141,11 @@ function CustomerHome() {
           <Navbar />
           <div style={boxStyle}>
           <div>
-            <button onClick={navigateTocart} style={{ border: '2px solid white', padding: '10px' , marginLeft:"45%", backgroundColor:"black", color:"white"}}>Cart</button>
-          </div>
-            <div>
               <h2 style={textStyle}>All Selling Products</h2>
               <div >
+          <div>
+            <button onClick={navigateTocart} style={buttonStyle}>Cart</button>
+          </div>
             
               </div>
               <ul style={ulStyle}>

@@ -55,40 +55,41 @@ import { useNavigate } from "react-router-dom";
       });
   };
 
+  const textStyle= {
+    marginLeft: '40%',
+  };
 
   const boxStyle = {
-    width: '40%',
-    height: `375px`,
+    width: '42%',
+    height: `440px`,
     position: 'relative',
-    marginTop: `4%`,
-    marginLeft: '27%',
-    backgroundColor: '#707070',
-    padding: '10px',
+    marginTop: `1%`,
+    marginLeft: '26%',
+    backgroundColor: '#adadad',
+    borderRadius: '10px',
+    padding: '15px',
   };
 
     const buttonStyle = {
-      width: '15%',
-      height: `20px`,
-      borderRadius: '30px',
-      position: 'relative',
-      marginTop: `5%`,
-      marginLeft: '25%',
-      marginRight: '25%',
-      backgroundColor: '#138324',
-      padding: '10px',
-    };
-
+      borderRadius:'20px',
+      width: '120px',
+      padding: '10px' ,
+      marginLeft:"-14px",
+      marginTop:"20px",
+      backgroundColor:"green",
+      color:"white",
+      fontSize: "14px"
+    }
 
     const containerinputStyleHorizontal = {
       position: 'relative',
       width: '160px',
       height: '10px',
-      marginTop: '12px',
+      marginTop: '15px',
       marginRight: '5px',
       borderRadius: '30px',
       padding: '20px',
-      background: '#707070',
-      boxShadow: '14px 14px 80px #cbced1, -14px -14px 90px white',
+      background: '#ffffff',
       alignItems: 'center',
       justifyContent: 'center'
     };
@@ -101,8 +102,7 @@ import { useNavigate } from "react-router-dom";
     marginRight: '8px',
     borderRadius: '30px',
     padding: '15px',
-    background: '#707070',
-    boxShadow: '14px 14px 80px #cbced1, -14px -14px 90px white',
+    background: '#ffffff',
     alignItems: 'center',
     justifyContent: 'center'
   };
@@ -127,79 +127,73 @@ import { useNavigate } from "react-router-dom";
     <div style={backgroundStyle}>
       <Navbar/>
       <div style={boxStyle}>
-      <form onSubmit={handleSubmit} style={formStyle}>
-        <div style={containerinputStyle}>
-          <input
+        <h2 style={textStyle}>Register</h2>
+        <form onSubmit={handleSubmit} style={formStyle}>
+        <div>
+          <input style={containerinputStyle}
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             placeholder="Enter username"
-            style={{containerinputStyle}}
           />
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <div style={containerinputStyleHorizontal}>
-          <input
+        <div>
+          <input style={containerinputStyleHorizontal}
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Enter password"
-            style={{containerinputStyleHorizontal}}
           />
         </div>
-        <div style={containerinputStyleHorizontal}>
-          <input
+        <div>
+          <input style={containerinputStyleHorizontal}
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             placeholder="Confirm password"
-            style={{containerinputStyleHorizontal, placeholder: {color: '#fff'}}}
           />
         </div>
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <div style={containerinputStyle}>
-          <input
+        <div>
+          <input style={containerinputStyle}
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter email"
-            style={{containerinputStyle, placeholder: {color: '#fff'}}}
           />
         </div>
-        <div style={containerinputStyle}>
-          <input
+        <div>
+          <input style={containerinputStyle}
             type="text"
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
             placeholder="Enter phone number"
-            style={{containerinputStyle, placeholder: {color: '#fff'}}}
           />
         </div>
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <div style={containerinputStyle}>
-          <input
+        <div>
+          <input style={containerinputStyle}
             type="text"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
             placeholder="Enter first name"
-            style={{containerinputStyle, placeholder: {color: '#fff'}}}
           />
         </div>
-        <div style={containerinputStyle}>
-          <input
+        <div>
+          <input style={containerinputStyle}
             type="text"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
             placeholder="Enter last name"
-            style={{containerinputStyle, placeholder: {color: '#fff'}}}
           />
         </div>
         </div>
 
         <div style={containerinputStyle}>
-          <select onChange={(e) => setUserType(e.target.value)} style={{containerinputStyle}}
+          <select onChange={(e) => setUserType(e.target.value)}
           >
           <option value=""></option>
             <option value="CUSTOMER">Customer</option>
@@ -207,9 +201,8 @@ import { useNavigate } from "react-router-dom";
           </select>
         </div>
 
-        <div style={buttonStyle}>
-          <button type="submit" style={{containerinputStyle}}
-          >submit</button>
+        <div>
+          <button type="submit" style={buttonStyle}> submit</button>
         </div>
 </form>
 

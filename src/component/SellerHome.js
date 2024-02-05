@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; 
-import back_img from "../img/AllProductsBack.png";
+import back_img from "../img/SellerHomeBack.png";
 import Navbar from "./Navbar";
 
 const SellerHome = () => {
@@ -19,6 +19,24 @@ const SellerHome = () => {
   const navigateToSellingProduct = () => {
     navigate('/sellingproduct');
   };
+
+
+    const boxStyle = {
+        width: '42%',
+        height: `330px`,
+        position: 'relative',
+        marginTop: `6%`,
+        marginLeft: '26%',
+        backgroundColor: '#adadad',
+        borderRadius: '10px',
+        padding: '15px',
+    };
+
+    const textStyle= {
+        marginLeft: '25%',
+        fontSize: '30px'
+    };
+
   const backgroundStyle = {
     backgroundImage: `url(${back_img})`,
     backgroundSize: 'cover',
@@ -28,18 +46,25 @@ const SellerHome = () => {
 };
 
 
-const buttonStyle = {marginLeft:"45%", 
-color:"white", 
-backgroundColor:"black", 
-marginTop:"2%", 
-marginBottom:"2%",
- padding:'8px'}
+    const buttonStyle = {
+        borderRadius:'20px',
+        width: '170px',
+        height: '60px',
+        padding: '13px' ,
+        marginLeft:"160px",
+        marginTop:"20px",
+        backgroundColor:'#8067a2',
+        color:"white",
+        fontSize: "15px"
+    }
 
 
   return (
     <div style={backgroundStyle}>
       <Navbar/>
-      <h1 style={{marginLeft:"37%"}}>Seller Home Page</h1>
+        <div style={boxStyle}>
+
+      <h1 style={textStyle}>Seller Home Page</h1>
       <div>
         <button onClick={navigateToCreateProduct} style={buttonStyle}>Create Product View</button>
       </div>
@@ -50,6 +75,8 @@ marginBottom:"2%",
         <button onClick={navigateToSellingProduct } style={buttonStyle}>selling products</button>
       </div>
     </div>
+    </div>
+
   );
 };
 
