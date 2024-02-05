@@ -15,20 +15,20 @@ function EditSellingProduct({ productId, onClose }) {
     try {
       setAuthHeaders(axios);
       const payload = {
-        color: color.trim() || undefined, // Set to undefined if empty
-        size: size.trim() || undefined, // Set to undefined if empty
-        price: price.trim(), // Price is required
-        properties: properties.trim() ? JSON.parse(properties) : undefined, // Set to undefined if empty
-        stock_count: stockCount.trim() || undefined, // Set to undefined if empty
+        color: color.trim() || undefined, 
+        size: size.trim() || undefined, 
+        price: price.trim(),
+        properties: properties.trim() ? JSON.parse(properties) : undefined, 
+        stock_count: stockCount.trim() || undefined, 
       };
       
  const response = await axios.put(`http://localhost:8080/shop/selling-product/${encodeURIComponent(productId)}/update/`, payload);
       
       console.log('Selling product updated:', response.data);
-      onClose(); // Close the form after successful submission
+      onClose(); 
     } catch (error) {
       if (error.response && error.response.data && error.response.data.error) {
-        setErrors({ color: error.response.data.error });  // Store color error separately
+        setErrors({ color: error.response.data.error });  
       } else if (error.response && error.response.data && error.response.data.errors) {
         setErrors(error.response.data.errors);
       } else {

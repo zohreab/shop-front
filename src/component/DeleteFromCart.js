@@ -21,10 +21,10 @@ function DeleteFromCart({ sellingProductId, onSuccess}) {
           },
       );
 
-      onSuccess(response.data); // Handle success, maybe update the cart state in the parent component
+      onSuccess(response.data); 
     } catch (error) {
       alert('Error deleting from cart:', error);
-       // Handle error, maybe show an error message to the user
+      
     }
   };
 

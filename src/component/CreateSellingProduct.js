@@ -14,17 +14,17 @@ function CreateSellingProduct({ productId, onClose }) {
     event.preventDefault();
     try {
       setAuthHeaders(axios);
-      const propertiesObject = JSON.parse(properties); // Parse properties as JSON
+      const propertiesObject = JSON.parse(properties); 
       const response = await axios.post('http://localhost:8080/shop/selling-product/create/', {
         product_id: productId,
         color,
         size,
         price,
-        properties: propertiesObject, // Use the parsed JSON object
+        properties: propertiesObject, 
         stock_count: stockCount,
       });
       console.log('Selling product created:', response.data);
-      onClose(); // Close the form after successful submission
+      onClose(); 
     } catch (error) {
       if (error.response && error.response.data && error.response.data.error) {
         setErrors({ color: error.response.data.error });  // Store color error separately

@@ -11,7 +11,7 @@ function SellingProducts() {
   const [selectedProductId, setSelectedProductId] = useState(null);
 
   useEffect(() => {
-    // Fetch all products on component mount
+   
     getAllSellingProducts();
   }, []);
 
