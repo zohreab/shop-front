@@ -16,7 +16,7 @@ const backgroundStyle = {
 const sellerStyle = {
     height: '50px',
     position: 'relative',
-    marginTop: '375px',
+    marginTop: '415px',
     marginLeft: '220px'
 };
 
@@ -24,7 +24,7 @@ const sellerStyle = {
 const customerStyle = {
     height: '50px',
     position: 'relative',
-    marginTop: '375px',
+    marginTop: '415px',
     marginLeft: '190px'
 };
 
@@ -32,14 +32,13 @@ const customerStyle = {
 const registerStyle = {
     height: '50px',
     position: 'relative',
-    marginTop: '375px',
+    marginTop: '415px',
     marginLeft: '200px'
 };
 
 function Home() {
     return (
         <div style={backgroundStyle}>
-            <Navbar />
             <Link to="/sellerlogin">
                 <img style={sellerStyle}
                     src={require("../img/seller.png")}

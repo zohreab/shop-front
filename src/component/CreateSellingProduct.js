@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { setAuthHeaders } from '../service/auth';
+import back_img from "../img/AllProductsBack.png";
+import Navbar from "./Navbar";
 
 function CreateSellingProduct({ productId, onClose }) {
   const [color, setColor] = useState('');
@@ -46,6 +48,25 @@ function CreateSellingProduct({ productId, onClose }) {
         color:"white"
     }
 
+    const boxStyle = {
+        width: '40%',
+        height: '400px',
+        position: 'relative',
+        marginLeft: '26.5%',
+        marginTop: '3%',
+        backgroundColor: '#adadad',
+        padding: '20px',
+        borderRadius: '10px',
+    };
+
+    const backgroundStyle = {
+        backgroundImage:`url(${back_img})`,
+        backgroundSize: 'cover',
+        minHeight: '100vh',
+        padding: '20px',
+        position: 'relative',
+    };
+
 
     const containerinputStyle = {
         position: 'relative',
@@ -55,11 +76,14 @@ function CreateSellingProduct({ productId, onClose }) {
         marginLeft: '10px',
         borderRadius: '30px',
         padding: '15px',
-        background: '#e4d5f6',
+        background: '#ffffff',
     };
 
   return (
-    <form onSubmit={handleSubmit}>
+      <div style={backgroundStyle}>
+          <Navbar/>
+          <div style={boxStyle}>
+          <form onSubmit={handleSubmit}>
       {errors && errors.color && (
         <div style={{ color: 'red', marginBottom: '10px' }}>
           {errors.color}
@@ -102,6 +126,8 @@ function CreateSellingProduct({ productId, onClose }) {
       <br />
       <button style={buttonStyle}  type="submit">Submit</button>
     </form>
+      </div>
+      </div>
   );
 }
 

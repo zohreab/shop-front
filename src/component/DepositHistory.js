@@ -20,6 +20,8 @@ function DepositHistory() {
     }
   };
 
+
+
   return (
     <div>
       <h2 style={{border: '2px solid #ccc', padding: '8px' , color:'White', marginLeft:"40%",  marginRight:"43.5%", backgroundColor:"black"}}>Deposit History</h2>

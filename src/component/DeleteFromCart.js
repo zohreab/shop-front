@@ -3,11 +3,6 @@ import axios from 'axios';
 import { setAuthHeaders } from '../service/auth';
 
 function DeleteFromCart({ sellingProductId, onSuccess}) {
-
-
-   
-    
- 
   const handleDeleteFromCart = async () => {
     try {
       
@@ -27,11 +22,21 @@ function DeleteFromCart({ sellingProductId, onSuccess}) {
        // Handle error, maybe show an error message to the user
     }
   };
+  const buttonStyle = {
+    borderRadius:'20px',
+    width: '100px',
+    padding: '12px' ,
+    marginLeft:"8px",
+    marginTop:"1%",
+    backgroundColor:"#8067a2",
+    color:"white"
+
+  }
 
   return (
     <div>
     
-      <button onClick={handleDeleteFromCart}>Delete From Cart</button>
+      <button style={buttonStyle} onClick={handleDeleteFromCart}>Delete From Cart</button>
       
     </div>
   );

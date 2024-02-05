@@ -26,10 +26,21 @@ function Buy({ sellingProductId, onSuccess}) {
     }
   };
 
+  const buttonStyle = {
+    borderRadius:'20px',
+    width: '100px',
+    padding: '12px' ,
+    marginLeft:"8px",
+    marginTop:"1%",
+    backgroundColor:"#8067a2",
+    color:"white"
+
+  }
+
   return (
     <div>
       
-      <button onClick={handleBuy}>Buy the product</button>
+      <button style={buttonStyle} onClick={handleBuy}>Buy</button>
     </div>
   );
 }

@@ -37,6 +37,30 @@ function EditSellingProduct({ productId, onClose }) {
     }
   };
 
+    const buttonStyle = {
+        borderRadius:'20px',
+        width: '100px',
+        padding: '12px' ,
+        marginLeft:"8px",
+        marginTop:"1%",
+        backgroundColor:"#8067a2",
+        color:"white"
+
+    }
+
+    const containerinputStyle = {
+        position: 'relative',
+        width: '50px',
+        height: '3px',
+        marginTop: '15px',
+        marginLeft: '8px',
+        borderRadius: '30px',
+        padding: '15px',
+        background: '#ffffff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    };
+
   return (
     <form onSubmit={handleSubmit}>
       {errors && errors.color && (
@@ -46,7 +70,7 @@ function EditSellingProduct({ productId, onClose }) {
       )}
       <label>
   Color:
-  <select value={color} onChange={(e) => setColor(e.target.value)}>
+  <select style={containerinputStyle} value={color} onChange={(e) => setColor(e.target.value)}>
     <option value="">Select Color</option>
     <option value="Red">Red</option>
     <option value="Green">Green</option>
@@ -61,26 +85,26 @@ function EditSellingProduct({ productId, onClose }) {
       <br />
       <label>
         Size:
-        <input type="text" value={size} onChange={(e) => setSize(e.target.value)} />
+        <input style={containerinputStyle} type="text" value={size} onChange={(e) => setSize(e.target.value)} />
       </label>
       <br />
       <label>
         Properties:
-        <input type="text" value={properties} onChange={(e) => setProperties(e.target.value)} />
+        <input style={containerinputStyle} type="text" value={properties} onChange={(e) => setProperties(e.target.value)} />
       </label>
       <br />
       <label>
         Price:
-        <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} />
+        <input style={containerinputStyle} type="text" value={price} onChange={(e) => setPrice(e.target.value)} />
       </label>
       <br />
       <label>
         Stock Count:
-        <input type="number" value={stockCount} onChange={(e) => setStockCount(e.target.value)} />
+        <input style={containerinputStyle} type="number" value={stockCount} onChange={(e) => setStockCount(e.target.value)} />
       </label>
       <br />
-      <button onClick={handleSubmit}>Update Selling Product</button>
-      <button onClick={onClose}>Close</button>
+      <button style={buttonStyle}  onClick={handleSubmit}>Update Selling Product</button>
+      <button style={buttonStyle} onClick={onClose}>Close</button>
     </form>
   );
 }

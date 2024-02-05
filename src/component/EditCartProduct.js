@@ -26,10 +26,33 @@ function EditCartProduct({ sellingProductId, onSuccess }) {
     }
   };
 
+    const buttonStyle = {
+        borderRadius:'20px',
+        width: '110px',
+        padding: '12px' ,
+        marginLeft:"25px",
+        marginTop:"1%",
+        backgroundColor:"#8067a2",
+        color:"white"
+    }
+
+    const containerinputStyle = {
+        position: 'relative',
+        width: '30px',
+        height: '12px',
+        marginTop: '15px',
+        marginLeft: '25px',
+        borderRadius: '30px',
+        padding: '15px',
+        background: '#ffffff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    };
+
   return (
     <div>
       <label htmlFor="quantity">Edit Quantity:</label>
-      <input
+      <input style={containerinputStyle}
         type="number"
         id="quantity"
         name="quantity"
@@ -37,7 +60,7 @@ function EditCartProduct({ sellingProductId, onSuccess }) {
         value={count}
         onChange={(e) => setCount(e.target.value)}
       />
-      <button onClick={handleEditCartProduct}>Edit quantity</button>
+      <button style={buttonStyle} onClick={handleEditCartProduct}>Edit quantity</button>
     </div>
   );
 }

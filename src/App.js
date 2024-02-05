@@ -37,19 +37,6 @@ const App = () => {
       <Route path="/sellingproduct" element={<SellingProducts/>} />
       <Route path="/cart" element={<Cart/>} />
 
-
-      <Route path="/editsellingproduct" element={<EditSellingProduct/>} />
-      <Route path="/deposithistory" element={<DepositHistory/>} />
-      <Route path="/deletefromcart" element={<DeleteFromCart/>} />
-      <Route path="/buyhistory" element={<BuyHistory/>} />
-      <Route path="/buy" element={<Buy/>} />
-      <Route path="/balance" element={<Balance/>} />
-      <Route path="/addtocart" element={<AddToCart/>} />
-      <Route path="/editcartproduct" element={<EditCartProduct/>} />
-
-
-
-
       </Routes>
     </BrowserRouter>
   );

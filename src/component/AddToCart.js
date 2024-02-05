@@ -26,10 +26,33 @@ function AddToCart({ sellingProductId, onSuccess, onError }) {
     }
   };
 
+    const buttonStyle = {
+        borderRadius:'20px',
+        width: '100px',
+        padding: '12px' ,
+        marginLeft:"25px",
+        marginTop:"1%",
+        backgroundColor:"#8067a2",
+        color:"white"
+    }
+
+    const containerinputStyle = {
+        position: 'relative',
+        width: '50px',
+        height: '12px',
+        marginTop: '15px',
+        marginLeft: '25px',
+        borderRadius: '30px',
+        padding: '15px',
+        background: '#ffffff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    };
+
   return (
     <div>
       <label htmlFor="quantity">Quantity:</label>
-      <input
+      <input style={containerinputStyle}
         type="number"
         id="quantity"
         name="quantity"
@@ -37,7 +60,7 @@ function AddToCart({ sellingProductId, onSuccess, onError }) {
         value={count}
         onChange={(e) => setCount(e.target.value)}
       />
-      <button onClick={handleAddToCart}>Add to Cart</button>
+      <button style={buttonStyle} onClick={handleAddToCart}>Add to Cart</button>
     </div>
   );
 }
